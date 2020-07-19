@@ -31,6 +31,8 @@ namespace JwtTokenAuthentication.Core.Api
             services.Configure<Jwt>(Configuration.GetSection("JWT"));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IRoleService, RoleService>();
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));

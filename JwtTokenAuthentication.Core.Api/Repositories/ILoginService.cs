@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace JwtTokenAuthentication.Core.Api.Repositories
 {
-    public interface IUserService
+    public interface ILoginService
     {
-        Task<string> RegisterAsync(User model);        
+        Task<AuthenticationResponseModel> GetTokenAsync(AuthenticationRequestModel model);
     }
 }
